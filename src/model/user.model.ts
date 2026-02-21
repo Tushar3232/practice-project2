@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 interface Iuser{
     _id?: mongoose.Types.ObjectId,
-    neam?: string,
+    name?: string,
     image?: string,
     email: string,
     password: string,
@@ -13,7 +13,7 @@ interface Iuser{
 
 
 const userSchema= new mongoose.Schema<Iuser>({
-    neam:{
+    name:{
         type:String,
         required:true,
 
