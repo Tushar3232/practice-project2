@@ -4,6 +4,7 @@ import connectDb from "./db"
 import { User } from "@/model/user.model"
 import bcrypt from "bcryptjs"
 
+
 const authOptions:NextAuthOptions={
     providers:[ // login kamne korbo 
         // Cradential provider / email,pass provider
@@ -39,8 +40,10 @@ const authOptions:NextAuthOptions={
                 image: existUser.image
                }
             }
-        })
-        
+        }),
+
+        // Google provider
+       
 
     ],
     callbacks:{
