@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import connectDb from "./db"
 import { User } from "@/model/user.model"
 import bcrypt from "bcryptjs"
+import Google from "next-auth/providers/google"
 
 
 const authOptions:NextAuthOptions={
@@ -43,6 +44,10 @@ const authOptions:NextAuthOptions={
         }),
 
         // Google provider
+        Google({
+            clientId: "",
+            clientSecret: ""
+        })
        
 
     ],
