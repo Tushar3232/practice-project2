@@ -1,6 +1,7 @@
 'use client'
 
 import axios from "axios";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,6 +16,7 @@ const Register = () => {
         try{
             const result = await axios.post("/api/auth/register",{name, email, password})
             console.log(result)
+           
         }catch(error){
             console.log(error)
         }
@@ -56,7 +58,7 @@ const Register = () => {
                     <button className=' my-4 border w-full p-1.5 hover:bg-white hover:font-bold hover:text-black'>Register</button>
                     
                     {/* Google */}
-                    <button className="bg-white w-full flex items-center text-gray-700 dark:text-gray-300 justify-center gap-x-3 text-sm sm:text-base  dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border px-8 py-2.5">
+                    <button onClick={async ()=> await signIn("google",{callbackUrl: "/login"})} type="button" className="bg-white w-full flex items-center text-gray-700 dark:text-gray-300 justify-center gap-x-3 text-sm sm:text-base  dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border px-8 py-2.5">
                         <svg className="w-5 h-5 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_3033_94454)">
                                 <path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.766 15.9274 23.766 12.2764Z" fill="#4285F4" />
