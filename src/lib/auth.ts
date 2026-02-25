@@ -57,7 +57,7 @@ const authOptions: NextAuthOptions = {
             if (account?.provider === "google") {
                 await connectDb()
 
-                let existUser = await User.findOne({ email: user?.email })
+                const existUser = await User.findOne({ email: user?.email })
                 
                 if (!existUser) {
                    const newUser = await User.create({
